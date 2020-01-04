@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    build: .
+    build: sappachok/node-bigdata:latest
     container_name: bigdata-gunicorn
     restart: always
     env_file:
