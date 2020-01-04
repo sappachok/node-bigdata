@@ -1,0 +1,12 @@
+Django==2.2.4
+gunicorn==19.9.0
+pytz==2019.1
+psycopg2
+django-chartjs
+requests
+numpy
+scipy
+scikit-learn
+matplotlib
+seaborn
+pandas

@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: bigdata-gunicorn
+    restart: always
+    env_file:
+      - django.env
+    volumes:
+      - ./app:/src
+    ports:
+      - "9000:8000"
+    command:
+      "gunicorn --workers=5 --timeout=0 --bind=0.0.0.0:9000 mysite.wsgi:application"
+  nginx:
+    image: nginx:1.17
+    container_name: bigdata-ngx
+    ports:
+      - "9999:9000"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
